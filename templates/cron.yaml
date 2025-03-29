@@ -1,19 +1,19 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "video-app.fullname" . }}-restarter
+  name: {{ include "devops.fullname" . }}-restarter
 spec:
   schedule: "0 * * * *"  # Jede Stunde (zur vollen Stunde)
   jobTemplate:
     spec:
       template:
         spec:
-          serviceAccountName: {{ include "video-app.fullname" . }}-restarter
+          serviceAccountName: {{ include "devops.fullname" . }}-restarter
           containers:
           - name: kubectl
             image: bitnami/kubectl:latest
             command:
             - /bin/sh
             - -c
-            - kubectl rollout restart deployment/{{ include "video-app.fullname" . }}
+            - kubectl rollout restart deployment/{{ include "devops.fullname" . }}
           restartPolicy: OnFailure
