@@ -2,7 +2,7 @@ apiVersion: v2
 name: video-app
 description: video-app page
 type: application
-version: "2.4"
-appVersion: "2.4"
+version: "2.5"
+appVersion: "2.5"
 maintainers:
 - name: tron4x
